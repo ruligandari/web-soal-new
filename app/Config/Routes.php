@@ -26,4 +26,6 @@ $routes->group('api', function ($routes) {
     $routes->post('readsoal-by-id', 'api\ApiController::readSoalPost');
 
     $routes->post('readnilai', 'api\ApiController::readNilai');
+
+    $routes->get('skor', 'api\ApiController::skor');
 });

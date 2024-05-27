@@ -35,6 +35,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>NIS</th>
                                     <th>Nama</th>
                                     <th>Niai</th>
                                     <th>Waktu Pengerjaan</th>
@@ -46,6 +47,7 @@
                                 foreach ($siswa as $data) : ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
+                                        <td><?= $data['nis'] ?></td>
                                         <td><?= $data['nama_siswa'] ?></td>
                                         <td><?= $data['nilai'] ?></td>
                                         <td><?= $data['waktu_pengerjaan'] ?></td>

@@ -46,7 +46,7 @@ class ApiController extends BaseController
         // return json
         return $this->response->setJSON($data);
     }
-    
+
     public function readSoalPost()
     {
         $id = $this->request->getPost('id');
@@ -61,12 +61,14 @@ class ApiController extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $nilai = $this->request->getPost('nilai');
         $nama_siswa = $this->request->getPost('nama_siswa');
+        $nis = $this->request->getPost('nis');
         $waktu_pengerjaan = date('Y-m-d H:i:s');
 
         $data = [
             'nilai' => $nilai,
             'nama_siswa' => $nama_siswa,
-            'waktu_pengerjaan' => $waktu_pengerjaan
+            'waktu_pengerjaan' => $waktu_pengerjaan,
+            'nis' => $nis
         ];
 
         try {
@@ -91,5 +93,13 @@ class ApiController extends BaseController
             // return json
             return $this->response->setJSON($returnData);
         }
+    }
+
+    public function skor()
+    {
+        $data = $this->siswaModel->findAll();
+
+        // return json
+        return $this->response->setJSON($data);
     }
 }
