@@ -15,6 +15,8 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('soal/update/(:num)', 'admin\SoalController::update/$1');
     $routes->get('soal/delete/(:num)', 'admin\SoalController::delete/$1');
 
+    $routes->post('pengaturan', 'admin\SoalController::pengaturan');
+
     $routes->get('siswa', 'admin\SiswaController::index');
 });
 
@@ -28,4 +30,5 @@ $routes->group('api', function ($routes) {
     $routes->post('readnilai', 'api\ApiController::readNilai');
 
     $routes->get('skor', 'api\ApiController::skor');
+    $routes->get('readpengaturan', 'api\ApiController::pengaturan');
 });

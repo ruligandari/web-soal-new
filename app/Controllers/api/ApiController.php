@@ -3,6 +3,7 @@
 namespace App\Controllers\Api;
 
 use App\Controllers\BaseController;
+use App\Models\PengaturanModel;
 use App\Models\SiswaModel;
 use App\Models\SoalModel;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -11,10 +12,12 @@ class ApiController extends BaseController
 {
     protected $soalModel;
     protected $siswaModel;
+    protected $pengaturanModel;
     public function __construct()
     {
         $this->soalModel = new SoalModel();
         $this->siswaModel = new SiswaModel();
+        $this->pengaturanModel = new PengaturanModel();
     }
     public function index()
     {
@@ -101,5 +104,18 @@ class ApiController extends BaseController
 
         // return json
         return $this->response->setJSON($data);
+    }
+
+    public function pengaturan()
+    {
+        $data = $this->pengaturanModel->where('id', 1)->first();
+
+        $jumlah_soal = $data['jumlah_soal'];
+        $datas = [
+            'jumlah_soal' => $jumlah_soal
+        ];
+
+        // return json
+        return $this->response->setJSON($datas);
     }
 }

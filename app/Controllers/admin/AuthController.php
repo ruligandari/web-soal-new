@@ -41,9 +41,13 @@ class AuthController extends BaseController
                 // set session
                 $dataSession = [
                     'nama' => $user['nama'],
-                    'isLogin' => true
+                    'isLogin' => true,
+                    'role' => $user['username'] == 'siswa' ? '2' : '1',
                 ];
                 session()->set($dataSession);
+                if ($user['username'] == 'siswa') {
+                    return redirect()->to('admin/siswa');
+                }
                 return redirect()->to('admin/soal');
             } else {
                 return redirect()->to('/')->with('error', 'Username atau Password salah');

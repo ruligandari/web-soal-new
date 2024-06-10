@@ -47,11 +47,13 @@
                 Menu
             </div>
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item <?= ($title == 'Data Soal') ? 'active' : '' ?>">
-                <a class="nav-link" href="<?= base_url('admin/soal') ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Data Soal</span></a>
-            </li>
+            <?php if (session()->get('role') == '1') : ?>
+                <li class="nav-item <?= ($title == 'Data Soal') ? 'active' : '' ?>">
+                    <a class="nav-link" href="<?= base_url('admin/soal') ?>">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Data Soal</span></a>
+                </li>
+            <?php endif ?>
             <li class="nav-item <?= ($title == 'Data Siswa') ? 'active' : '' ?>">
                 <a class="nav-link" href="<?= base_url('admin/siswa') ?>">
                     <i class="fas fa-fw fa-users"></i>
