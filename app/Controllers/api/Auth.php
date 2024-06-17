@@ -16,7 +16,7 @@ class Auth extends BaseController
     public function index()
     {
         $username = $this->request->getPost('username');
-        $password = $this->request->getPost('pasword');
+        $password = $this->request->getPost('password');
 
         // login logic
 
