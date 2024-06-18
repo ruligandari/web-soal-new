@@ -43,6 +43,11 @@ class Auth extends BaseController
                     'message' => "NIS atau Kata Sandi Salah"
                 ]);
             }
+        } else {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => "NIS atau Kata Sandi Salah"
+            ]);
         }
     }
 }
