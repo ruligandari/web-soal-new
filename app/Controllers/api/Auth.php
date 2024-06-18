@@ -40,7 +40,7 @@ class Auth extends BaseController
             } else {
                 return $this->response->setJSON([
                     'status' => 'error',
-                    'message' => "Password atau Katasandi Salah"
+                    'message' => "NIS atau Kata Sandi Salah"
                 ]);
             }
         }
