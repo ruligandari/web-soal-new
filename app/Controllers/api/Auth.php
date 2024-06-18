@@ -29,6 +29,8 @@ class Auth extends BaseController
             if ($pass == $password) {
                 // set session
                 $data = [
+                    'status' => 'success',
+                    'message' => 'Login Berhasil',
                     'nama' => $dataSiswa['nama'],
                     'nis' => $dataSiswa['username']
 
@@ -36,7 +38,10 @@ class Auth extends BaseController
 
                 return $this->response->setJSON($data);
             } else {
-                return $this->response->setJSON(['message' => "Password atau Katasandi Salah"]);
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => "Password atau Katasandi Salah"
+                ]);
             }
         }
     }
