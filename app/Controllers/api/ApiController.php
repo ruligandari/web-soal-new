@@ -126,6 +126,6 @@ class ApiController extends BaseController
         $data = $this->siswaModel->where('nis', $nis)->orderBy('id', 'DESC')->first();
 
         // return json
-        return $this->response->setJSON($data);
+        return $this->response->setJSON($data['nilai']);
     }
 }
