@@ -31,6 +31,7 @@ $routes->group('api', function ($routes) {
 
     $routes->get('skor', 'api\ApiController::skor');
     $routes->get('readpengaturan', 'api\ApiController::pengaturan');
+    $routes->get('getnilai/(:any)', 'api\ApiController::getNilai/$1');
 
     $routes->post('login', 'api\Auth::index');
 });

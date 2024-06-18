@@ -118,4 +118,14 @@ class ApiController extends BaseController
         // return json
         return $this->response->setJSON($datas);
     }
+
+    public function getNilai($nis)
+    {
+
+        // cari niliai pengisian terbaru
+        $data = $this->siswaModel->where('nis', $nis)->orderBy('id', 'DESC')->first();
+
+        // return json
+        return $this->response->setJSON($data);
+    }
 }
