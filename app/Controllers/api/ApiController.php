@@ -3,6 +3,7 @@
 namespace App\Controllers\Api;
 
 use App\Controllers\BaseController;
+use App\Models\AdminModel;
 use App\Models\PengaturanModel;
 use App\Models\SiswaModel;
 use App\Models\SoalModel;
@@ -13,11 +14,13 @@ class ApiController extends BaseController
     protected $soalModel;
     protected $siswaModel;
     protected $pengaturanModel;
+    protected $adminModel;
     public function __construct()
     {
         $this->soalModel = new SoalModel();
         $this->siswaModel = new SiswaModel();
         $this->pengaturanModel = new PengaturanModel();
+        $this->adminModel = new AdminModel();
     }
     public function index()
     {
@@ -124,12 +127,20 @@ class ApiController extends BaseController
 
         // cari niliai pengisian terbaru
         $data = $this->siswaModel->where('nis', $nis)->orderBy('id', 'DESC')->first();
+        $dataKosong = $this->adminModel->where('nis', $nis)->first();
 
         // return json
         if ($data) {
             return $this->response->setJSON($data);
         }
 
-        return $this->response->setJSON('0');
+        $datas = [
+            'nama_siswa' => $dataKosong['nama'],
+            'nis' => $dataKosong['username'],
+            'nilai' => 0,
+        ];
+
+
+        return $this->response->setJSON($datas);
     }
 }
