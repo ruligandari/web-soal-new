@@ -127,7 +127,7 @@ class ApiController extends BaseController
 
         // cari niliai pengisian terbaru
         $data = $this->siswaModel->where('nis', $nis)->orderBy('id', 'DESC')->first();
-        $dataKosong = $this->adminModel->where('nis', $nis)->first();
+        $dataKosong = $this->adminModel->where('username', $nis)->first();
 
         // return json
         if ($data) {
