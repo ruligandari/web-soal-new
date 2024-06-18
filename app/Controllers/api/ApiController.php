@@ -127,7 +127,7 @@ class ApiController extends BaseController
 
         // return json
         if ($data) {
-            return $this->response->setJSON($data['nilai']);
+            return $this->response->setJSON($data);
         }
 
         return $this->response->setJSON('0');
